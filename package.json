@@ -1,0 +1,36 @@
+{
+  "name": "baribari",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alt": "^0.17.1",
+    "babel": "^5.6.23",
+    "babel-core": "^5.7.4",
+    "babel-loader": "^5.3.2",
+    "ejs": "^2.3.3",
+    "express": "^4.13.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.0.3",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-webpack": "^1.5.0",
+    "iso": "^4.1.0",
+    "jsx-loader": "^0.13.2",
+    "moment": "^2.10.3",
+    "node-jsx": "^0.13.3",
+    "node-libs-browser": "^0.5.2",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "serve-favicon": "^2.3.0",
+    "underscore": "^1.8.3",
+    "webpack": "^1.10.1"
+  }
+}
