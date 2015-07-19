@@ -1,5 +1,6 @@
 node_modules/
 build/
-_old/
+public/build.css
+public/build.js
 .idea/
 server.js
