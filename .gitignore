@@ -3,4 +3,3 @@ build/
 public/build.css
 public/build.js
 .idea/
-server.js
