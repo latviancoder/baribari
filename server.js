@@ -5,6 +5,8 @@ var express = require('express'),
     Router  = require('react-router'),
     React   = require('react'),
     favicon = require('serve-favicon'),
+    geoip   = require('geoip-lite'),
+    locale  = require("locale"),
     Iso     = require('iso');
 
 var routes = require('./src/routes');
@@ -13,10 +15,24 @@ var alt = require('./src/alt');
 // Initialize app
 var app = express();
 
+app.set('view engine', 'ejs');
+
 // Directory for static JS/CSS files
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.set('view engine', 'ejs');
+
+// Get system language with middleware
+app.use(locale(["en", "de", "ru"]));
+
+// Get ip with middleware
+var get_ip = require('ipware')().get_ip;
+app.use(function(req, res, next) {
+	req.ip_info = get_ip(req);
+	//var geo = geoip.lookup(req.ip_info.clientIp);
+	var geo = geoip.lookup('87.157.56.91');
+	//console.log(req.locale);
+	next();
+});
 
 // Prior to running react-router we setup this route in order to handle data fetching.
 // We can pass data fetched via express' locals.
