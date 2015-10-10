@@ -1,12 +1,11 @@
 var React = require('react');
 var Route = require('react-router').Route;
 
-var App   = require('./components/App.js'),
-    Hello = require('./components/Hello.js');
+var Landing = require('./components/landing/Landing.js'),
+    Hello   = require('./components/Hello.js');
 
 var routes = (
-	<Route name='home' path='/' handler={App}>
-		<Route name='hello' path='/hello/:name?' handler={Hello}/>
+	<Route name='home' path='/' handler={Landing}>
 	</Route>
 );
 

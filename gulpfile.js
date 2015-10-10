@@ -29,7 +29,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('html', function() {
-	gulp.src('**/*.ejs')
+	gulp.src('views/**/*.ejs')
 		.pipe($.livereload());
 });
 
@@ -43,10 +43,10 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('**/*.ejs', ['html']);
+	gulp.watch('views/**/*.ejs', ['html']);
 	gulp.watch('src/stylesheets/**', ['stylesheets']);
 
-	$.livereload.listen(12346);
+	$.livereload.listen(12347);
 });
 
-gulp.task('default', ['scripts', 'stylesheets', 'watch']);
+gulp.task('default', ['scripts', 'stylesheets', 'html', 'watch']);
