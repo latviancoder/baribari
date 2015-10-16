@@ -33,6 +33,8 @@ app.use(locale(supported_locales));
 
 // Get ip
 var get_ip = require('ipware')().get_ip;
+
+// Populate LanguageStore with locale and geographical data
 app.use((req, res, next) => {
 	req.ip_info = get_ip(req);
 
@@ -43,6 +45,8 @@ app.use((req, res, next) => {
 	if (geo && geo.country == 'DE')
 		req.locale = 'de';
 
+	req.locale = 'en';
+
 	res.locals.data = {
 		LanguageStore: {
 			locale: req.locale,
@@ -50,31 +54,30 @@ app.use((req, res, next) => {
 			geo: geo
 		}
 	};
+
 	next();
 });
 
 // Prior to running react-router we setup this route in order to handle data fetching.
 // We can pass data fetched via express' locals.
-//app.get('/hello/:name?', (req, res, next) => {
+//app.get('/', (req, res, next) => {
 //	res.locals.data = _.extend(res.locals.data, {
-//		HelloStore: {name: 'world'}
+//		HelloStore: {name: 'fromserver'}
 //	});
 //	next()
-//}
-
+//});
 
 // Magic
 app.use((req, res) => {
-	console.log(res.locals.data);
 	// We take the locals data we have fetched and seed our stores with data
 	alt.bootstrap(JSON.stringify(res.locals.data || {}));
 
 	var iso = new Iso();
+	var messages = require(`./src/messages/${req.locale}.js`);
 
 	// We use react-router to run the URL that is provided in routes.jsx
 	Router.run(routes, req.url, (Handler) => {
-		var intlData = require('./src/intl/de');
-		var content = React.renderToString(React.createElement(Handler, intlData));
+		var content = React.renderToString(React.createElement(Handler, messages));
 
 		// Use iso to render, it picks back up on the client side and bootstraps the stores.
 		iso.add(content, alt.flush());
