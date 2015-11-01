@@ -42,8 +42,5 @@
     "serve-favicon": "^2.3.0",
     "underscore": "^1.8.3",
     "webpack": "^1.10.1"
-  },
-  "devDependencies": {
-    "react": "^0.14.1"
   }
 }
