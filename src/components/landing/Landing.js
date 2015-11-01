@@ -1,22 +1,22 @@
-var React            = require('react'),
-    ReactIntl        = require('react-intl'),
+var React             = require('react'),
+    LandingMail       = require('./LandingMail'),
+    LandingEngagement = require('./LandingEngagement'),
+    LandingContact    = require('./LandingContact'),
+    LandingHeader     = require('./LandingHeader');
 
-    IntlMixin        = ReactIntl.IntlMixin,
-    FormattedMessage = ReactIntl.FormattedMessage,
+var { IntlMixin } = require('react-intl');
 
-    LandingFooter    = require('./LandingFooter'),
-    LandingHeader    = require('./LandingHeader');
-
+// ------------------------------------
 var Landing = React.createClass({
 	mixins: [IntlMixin],
 
 	render() {
-		return (
-			<div>
-				<LandingHeader/>
-				<LandingFooter/>
-			</div>
-		)
+		return <div>
+			<LandingHeader/>
+			<LandingEngagement/>
+			<LandingMail/>
+			<LandingContact/>
+		</div>
 	}
 });
 

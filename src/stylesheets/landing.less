@@ -1,4 +1,15 @@
 body {
+	color: #181818;
+}
+
+.landing-fixed-background {
+	background: url('images/arches.png');
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
 }
 
 .landing-header {
@@ -6,15 +17,23 @@ body {
 	background: #000 url('images/landing2.png') no-repeat center;
 	background-size: cover;
 	position: relative;
+	& > div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .landing-header-logo {
 	position: absolute;
-	background: url('images/logo.png') no-repeat center;
-	width: 150px;
-	height: 181px;
-	background-size: 70%;
-	top: 10px;
+	width: 6rem;
+	top: 1rem;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -22,15 +41,107 @@ body {
 
 .landing-header-slogan {
 	color: #dcdcdc;
-	margin: auto;
-	position: absolute;
 	width: 100%;
-	bottom: 0;
-	top: -50px;
-	height: 50px;
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: normal;
-	//word-spacing: 3px;
-	line-height: 55px;
+	font-size: 2rem;
+	line-height: 3rem;
+}
+
+.landing-languages {
+	position: absolute;
+	top: 0.6rem;
+	left: 0.6rem;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	span {
+		cursor: pointer;
+		display: inline-block;
+		margin-right: 3px;
+		color: #6b6b6b;
+		&.active {
+			color: #b8b8b8;
+		}
+	}
+}
+
+.landing-engagement {
+	padding: 9rem 0;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 2rem;
+	line-height: 3rem;
+	font-weight: bold;
+	position: relative;
+}
+
+.landing-mail {
+	padding-bottom: 55%;
+	background: #000 url('images/footer.jpg') no-repeat center;
+	background-size: cover;
+	position: relative;
+	& > div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.landing-mail-soon {
+	color: #dcdcdc;
+	width: 100%;
+	font-size: 1.6rem;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+.landing-mail-input {
+	float: left;
+	border: 1px #ddd solid;
+	background: transparent;
+	padding: 7px 10px;
+	color: #fff;
+}
+
+.landing-mail-submit {
+	cursor: pointer;
+	padding: 6px 12px;
+	text-transform: uppercase;
+	margin-left: 10px;
+	border: 2px #fff solid;
+	color: #fff;
+	background: transparent;
+	&:hover {
+		background: #fff;
+		color: #000;
+	}
+}
+
+.landing-mail-nospam {
+	margin-top: 1.5rem;
+	font-size: 11px;
+	color: #dcdcdc;
+}
+
+.landing-contact {
+	min-height: 200px;
+	position: relative;
+	z-index: 2;
+}
+
+.landing-contact-nyanko {
+	width: 120px;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
