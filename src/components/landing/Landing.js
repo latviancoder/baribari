@@ -13,9 +13,11 @@ var Landing = React.createClass({
 	render() {
 		return <div>
 			<LandingHeader/>
+			/*
 			<LandingEngagement/>
 			<LandingMail/>
 			<LandingContact/>
+			*/
 		</div>
 	}
 });

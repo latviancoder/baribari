@@ -1,9 +1,9 @@
 require('node-jsx').install({harmony: true});
 
 // Polyfilling built-in node intl library with other locales (for example german)
-require('intl');
-Intl.NumberFormat = IntlPolyfill.NumberFormat;
-Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+//require('intl');
+//Intl.NumberFormat = IntlPolyfill.NumberFormat;
+//Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 
 // Dependencies
 var express        = require('express'),
