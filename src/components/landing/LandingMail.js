@@ -1,6 +1,6 @@
 var React = require('react');
 
-var { IntlMixin, FormattedMessage } = require('react-intl');
+var { IntlMixin, FormattedHTMLMessage } = require('react-intl');
 
 var LandingMail = React.createClass({
 	mixins: [IntlMixin],
@@ -9,7 +9,7 @@ var LandingMail = React.createClass({
 		return <section className="landing-mail">
 			<div>
 				<h2 className="landing-mail-soon">
-					<FormattedMessage message={this.getIntlMessage('mail.soon')}/>
+					<FormattedHTMLMessage message={this.getIntlMessage('mail.soon')}/>
 				</h2>
 				<div className="landing-mail-form">
 					<form action="">
