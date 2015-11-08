@@ -20,7 +20,7 @@ var express        = require('express'),
     _              = require('underscore'),
     https          = require('https'),
     fs             = require('fs'),
-    bodyParser = require('body-parser'),
+    bodyParser     = require('body-parser'),
 
     alt            = require('./src/alt'),
     routes         = require('./src/routes');
@@ -39,9 +39,6 @@ app.use(bodyParser.json());
 const supported_locales = ['en', 'de'];
 app.use(locale(supported_locales));
 
-// Get ip
-var get_ip = require('ipware')().get_ip;
-
 // Add mail api endpoint
 app.post('/api/test', (req, res) => {
 	db.run("INSERT INTO emails (email, data) VALUES ($email, $data)", {
@@ -54,8 +51,15 @@ app.post('/api/test', (req, res) => {
 
 // Get and geographical data
 app.use((req, res, next) => {
-	req.ip_info = get_ip(req);
-	var geo = geoip.lookup(req.ip_info.clientIp);
+	var ip = req.headers['x-forwarded-for'] ||
+	         req.connection.remoteAddress ||
+	         req.socket.remoteAddress ||
+	         req.connection.socket.remoteAddress;
+
+	var geo = geoip.lookup(ip);
+
+	console.log(ip);
+	console.log(geo);
 
 	if (req.url == '/') {
 		// If no language specified in URL - determine locale from user IP
@@ -74,7 +78,7 @@ app.use((req, res, next) => {
 		res.locals.data = {
 			LocaleStore: {
 				locale: req.locale,
-				ip: req.ip_info.clientIp,
+				ip: ip,
 				geo: geo
 			}
 		};
