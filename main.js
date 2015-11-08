@@ -58,9 +58,6 @@ app.use((req, res, next) => {
 
 	var geo = geoip.lookup(ip);
 
-	console.log(ip);
-	console.log(geo);
-
 	if (req.url == '/') {
 		// If no language specified in URL - determine locale from user IP
 		var locale = 'en';

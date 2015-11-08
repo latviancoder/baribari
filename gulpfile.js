@@ -37,6 +37,10 @@ gulp.task('stylesheets', function() {
 	gulp.src('src/stylesheets/main.less')
 		.pipe($.plumber())
 		.pipe($.less())
+		.pipe($.autoprefixer({
+			browsers: ['last 5 versions', 'IE 10', '> 1%'],
+			cascade: false
+		}))
 		.pipe($.concat('build.css'))
 		.pipe(gulp.dest('./public'))
 		.pipe($.livereload())
