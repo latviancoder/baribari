@@ -94,8 +94,12 @@ app.use((req, res) => {
 	match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
 		var content = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>);
 
+		var messages = {};
+		messages.de = require('./src/messages/de');
+		messages.en = require('./src/messages/en');
+
 		iso.add(content, alt.flush());
-		res.render('index', {body: iso.render()})
+		res.render('index', {body: iso.render(), title: messages[req.locale].messages.title})
 	});
 });
 

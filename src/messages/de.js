@@ -1,6 +1,7 @@
 module.exports = {
 	locales: 'de',
 	messages: {
+		title: "Japanische Geschenke, Japanischer Grüner Tee",
 		header: {
 			slogan: 'Wundervolle japanische Geschenksets',
 			slogan2: 'kostenlose Lieferung'
