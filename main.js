@@ -5,6 +5,10 @@ require('node-jsx').install({harmony: true});
 //Intl.NumberFormat = IntlPolyfill.NumberFormat;
 //Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('./db/db.sqlite');
+db.run("CREATE TABLE IF NOT EXISTS emails (email TEXT, data TEXT)");
+
 // Dependencies
 var express        = require('express'),
     favicon        = require('serve-favicon'),
@@ -16,6 +20,7 @@ var express        = require('express'),
     _              = require('underscore'),
     https          = require('https'),
     fs             = require('fs'),
+    bodyParser = require('body-parser'),
 
     alt            = require('./src/alt'),
     routes         = require('./src/routes');
@@ -27,6 +32,8 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // Get system language
 const supported_locales = ['en', 'de'];
@@ -34,6 +41,16 @@ app.use(locale(supported_locales));
 
 // Get ip
 var get_ip = require('ipware')().get_ip;
+
+// Add mail api endpoint
+app.post('/api/test', (req, res) => {
+	db.run("INSERT INTO emails (email, data) VALUES ($email, $data)", {
+		$email: req.body.email,
+		$data: JSON.stringify(req.body.locale)
+	}, () => {
+		res.send();
+	});
+});
 
 // Get and geographical data
 app.use((req, res, next) => {
@@ -53,9 +70,9 @@ app.use((req, res, next) => {
 		// If language specified - take locale from URL
 		req.locale = req.url.match('^/([^/]+)')[1];
 
-		// Populate LanguageStore with locale data
+		// Populate LocaleStore with locale data
 		res.locals.data = {
-			LanguageStore: {
+			LocaleStore: {
 				locale: req.locale,
 				ip: req.ip_info.clientIp,
 				geo: geo
@@ -83,4 +100,4 @@ app.use((req, res) => {
 
 var server = app.listen(1337, () => {
 	console.log('server started on port 1337');
-})
+});

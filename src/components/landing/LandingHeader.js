@@ -1,5 +1,5 @@
 var React         = require('react'),
-    LanguageStore = require('../../stores/LanguageStore');
+    LocaleStore = require('../../stores/LocaleStore');
 
 var { IntlMixin, FormattedMessage } = require('react-intl');
 
@@ -10,7 +10,7 @@ var LandingHeader = React.createClass({
 	_locales: ['en', 'de'],
 
 	getInitialState() {
-		return LanguageStore.getState()
+		return LocaleStore.getState()
 	},
 
 	render() {

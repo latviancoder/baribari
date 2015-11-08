@@ -14,7 +14,7 @@ body {
 
 .landing-header {
 	padding-bottom: 55%;
-	background: #000 url('images/landing2.png') no-repeat center;
+	background: #000 url('images/landing3.jpg') no-repeat center;
 	background-size: cover;
 	position: relative;
 	& > div {
@@ -99,9 +99,14 @@ body {
 	color: #dcdcdc;
 	width: 100%;
 	font-size: 1.6rem;
+	line-height: 2.5rem;
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: normal;
+}
+
+.landing-mail-form {
+	margin: 2rem 0;
 }
 
 .landing-mail-input {
@@ -110,6 +115,7 @@ body {
 	background: transparent;
 	padding: 7px 10px;
 	color: #fff;
+	width: 15rem;
 }
 
 .landing-mail-submit {
@@ -128,14 +134,42 @@ body {
 
 .landing-mail-nospam {
 	margin-top: 1.5rem;
-	font-size: 11px;
+	font-size: 12px;
 	color: #dcdcdc;
 }
 
+.landing-mail-success {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
 .landing-contact {
-	min-height: 200px;
+	padding: 5rem 0 6rem 0;
 	position: relative;
 	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.landing-contact-facebook {
+	font-size: 20px;
+	text-transform: uppercase;
+	margin: 2rem 0;
+	a {
+		color: #3B5998;
+		font-weight: bold;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.landing-contact-collage {
+	display: block;
 }
 
 .landing-contact-nyanko {

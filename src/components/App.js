@@ -1,5 +1,5 @@
 var React         = require('react'),
-    LanguageStore = require('../stores/LanguageStore');
+    LocaleStore = require('../stores/LocaleStore');
 
 var { IntlMixin } = require('react-intl');
 
@@ -13,7 +13,7 @@ var App = React.createClass({
 	render() {
 		return (
 			<div>
-				{React.cloneElement(this.props.children, messages[LanguageStore.getState().locale])}
+				{React.cloneElement(this.props.children, messages[LocaleStore.getState().locale])}
 			</div>
 		)
 	}

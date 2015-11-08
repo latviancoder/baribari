@@ -12,7 +12,9 @@ module.exports = {
 			soon: 'We are opening in early 2016 <br/> Be the first to know',
 			placeholder: 'E-Mail',
 			submit: 'Notify me',
-			nospam: 'We never spam. We promise.'
-		}
+			nospam: 'We never spam. We promise.',
+			success: 'Thank you!'
+		},
+		facebook: 'Follow us on <a href="https://www.facebook.com/baribari.de" target=_blank>facebook</a> for your daily dose of japanese beauty'
 	}
 };

@@ -1,9 +1,18 @@
-var React = require('react');
+var React           = require('react'),
+    request         = require('superagent'),
+    LocaleStore     = require('../../stores/LocaleStore'),
+    LandingMailForm = require('./LandingMailForm');
 
 var { IntlMixin, FormattedHTMLMessage } = require('react-intl');
 
 var LandingMail = React.createClass({
 	mixins: [IntlMixin],
+
+	getInitialState() {
+		return {
+			submitted: false
+		}
+	},
 
 	render() {
 		return <section className="landing-mail">
@@ -12,16 +21,26 @@ var LandingMail = React.createClass({
 					<FormattedHTMLMessage message={this.getIntlMessage('mail.soon')}/>
 				</h2>
 				<div className="landing-mail-form">
-					<form action="">
-						<input type="text" className="landing-mail-input" placeholder={this.getIntlMessage('mail.placeholder')}/>
-						<button type="submit" className="landing-mail-submit">{this.getIntlMessage('mail.submit')}</button>
-					</form>
+					{!this.state.submitted
+						? <LandingMailForm _addMail={this._addMail}/>
+						: <div className="landing-mail-success">{this.getIntlMessage('mail.success')}</div>}
 				</div>
 				<div className="landing-mail-nospam">
 					{this.getIntlMessage('mail.nospam')}
 				</div>
 			</div>
 		</section>
+	},
+
+	_addMail(email) {
+		var locale = LocaleStore.getState();
+
+		request
+			.post('/api/test')
+			.send({email, locale})
+			.end();
+
+		this.setState({submitted: true});
 	}
 });
 
