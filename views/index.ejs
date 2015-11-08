@@ -8,9 +8,13 @@
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="/build.css"/>
+
+	<% if (environment == 'dev') { %>
 	<script src="http://127.0.0.1:12347/livereload.js?snipver=1"></script>
+	<% } %>
 </head>
 <body>
+
 <div class="app">
 	<%- body %>
 </div>

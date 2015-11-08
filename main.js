@@ -58,6 +58,8 @@ app.use((req, res, next) => {
 
 	var geo = geoip.lookup(ip);
 
+	req.client_ip = ip;
+
 	if (req.url == '/') {
 		// If no language specified in URL - determine locale from user IP
 		var locale = 'en';
@@ -99,7 +101,11 @@ app.use((req, res) => {
 		messages.en = require('./src/messages/en');
 
 		iso.add(content, alt.flush());
-		res.render('index', {body: iso.render(), title: messages[req.locale].messages.title})
+		res.render('index', {
+			body: iso.render(),
+			title: messages[req.locale].messages.title,
+			environment: (req.client_ip.match(/127\.0\.0\.1/) ? 'dev' : 'prod')
+		})
 	});
 });
 
