@@ -4,12 +4,8 @@ var React             = require('react'),
     LandingMail       = require('./LandingMail'),
     LandingContact    = require('./LandingContact');
 
-var { IntlMixin } = require('react-intl');
-
 // ------------------------------------
 var Landing = React.createClass({
-	mixins: [IntlMixin],
-
 	render() {
 		return <div>
 			<LandingHeader/>

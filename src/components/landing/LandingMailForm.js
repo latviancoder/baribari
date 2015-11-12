@@ -1,21 +1,21 @@
 var React = require('react');
 
-var { IntlMixin } = require('react-intl');
+var { FormattedMessage, injectIntl } = require('react-intl');
 
 var LandingMailForm = React.createClass({
-	mixins: [IntlMixin],
-
 	render() {
+		var { intl } = this.props;
+
 		return <form action="" onSubmit={this.__onMailFormSubmitted}>
 
 			<input type="email"
 			       required="required"
 			       ref="mailInput"
 			       className="landing-mail-input"
-			       placeholder={this.getIntlMessage('mail.placeholder')}/>
+			       placeholder={intl.messages['mail.placeholder']}/>
 
 			<button type="submit" className="landing-mail-submit">
-				{this.getIntlMessage('mail.submit')}
+				<FormattedMessage id="mail.submit"/>
 			</button>
 		</form>
 	},
@@ -27,4 +27,4 @@ var LandingMailForm = React.createClass({
 	}
 });
 
-module.exports = LandingMailForm;
+module.exports = injectIntl(LandingMailForm);

@@ -1,13 +1,11 @@
 var React = require('react');
 
-var { IntlMixin, FormattedHTMLMessage } = require('react-intl');
+var { FormattedHTMLMessage } = require('react-intl');
 
 var LandingEngagement = React.createClass({
-	mixins: [IntlMixin],
-
 	render() {
 		return <h2 className="landing-engagement" ref="container">
-			<FormattedHTMLMessage message={this.getIntlMessage('engagement.slogan')}/>
+			<FormattedHTMLMessage id='engagement.slogan'/>
 		</h2>
 	}
 });

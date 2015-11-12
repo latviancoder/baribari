@@ -1,12 +1,10 @@
 var React         = require('react'),
     LocaleStore = require('../../stores/LocaleStore');
 
-var { IntlMixin, FormattedMessage } = require('react-intl');
+var { FormattedMessage } = require('react-intl');
 
 // ------------------------------------
 var LandingHeader = React.createClass({
-	mixins: [IntlMixin],
-
 	_locales: ['en', 'de'],
 
 	getInitialState() {
@@ -29,8 +27,9 @@ var LandingHeader = React.createClass({
 					</div>
 					<img src="images/logo.png" className="landing-header-logo"/>
 					<h1 className="landing-header-slogan">
-						{this.getIntlMessage('header.slogan')} <br/>
-						{this.getIntlMessage('header.slogan2')}
+						<FormattedMessage id="header.slogan"/>
+						<br/>
+						<FormattedMessage id="header.slogan2"/>
 					</h1>
 				</div>
 			</header>

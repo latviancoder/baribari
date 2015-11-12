@@ -1,10 +1,5 @@
 require('node-jsx').install({harmony: true});
 
-// Polyfilling built-in node intl library with other locales (for example german)
-//require('intl');
-//Intl.NumberFormat = IntlPolyfill.NumberFormat;
-//Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
-
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./db/db.sqlite');
 db.run("CREATE TABLE IF NOT EXISTS emails (email TEXT, data TEXT)");
@@ -52,9 +47,9 @@ app.post('/api/test', (req, res) => {
 // Get and geographical data
 app.use((req, res, next) => {
 	var ip = req.headers['x-forwarded-for'] ||
-	         req.connection.remoteAddress ||
-	         req.socket.remoteAddress ||
-	         req.connection.socket.remoteAddress;
+		req.connection.remoteAddress ||
+		req.socket.remoteAddress ||
+		req.connection.socket.remoteAddress;
 
 	var geo = geoip.lookup(ip);
 
@@ -96,14 +91,15 @@ app.use((req, res) => {
 	match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
 		var content = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>);
 
-		var messages = {};
-		messages.de = require('./src/messages/de');
-		messages.en = require('./src/messages/en');
+		var messages = {
+			de: require('./src/messages/de'),
+			en: require('./src/messages/en')
+		};
 
 		iso.add(content, alt.flush());
 		res.render('index', {
 			body: iso.render(),
-			title: messages[req.locale].messages.title,
+			title: messages[req.locale].title,
 			environment: (req.client_ip.match(/127\.0\.0\.1/) ? 'dev' : 'prod')
 		})
 	});
