@@ -24,8 +24,9 @@ gulp.task('scripts', function() {
 				noParse: /lie.js/
 			}
 		}))
+		.pipe($.util.env.type == 'production' ? $.uglify() : $.util.noop())
 		.pipe(gulp.dest('./public'))
-		.pipe($.livereload())
+		.pipe($.util.env.type != 'production' ? $.livereload() : $.util.noop())
 });
 
 gulp.task('html', function() {
