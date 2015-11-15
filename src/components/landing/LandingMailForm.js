@@ -6,7 +6,7 @@ var LandingMailForm = React.createClass({
 	render() {
 		var { intl } = this.props;
 
-		return <form action="" onSubmit={this.__onMailFormSubmitted}>
+		return <form onSubmit={this.__onMailFormSubmitted}>
 
 			<input type="email"
 			       required="required"
