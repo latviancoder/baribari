@@ -31,16 +31,12 @@ var LandingMail = React.createClass({
 	},
 
 	_addMail(email) {
-		alert('parent');
 		var locale = LocaleStore.getState();
 
-		alert(locale)
 		request
 			.post('/api/test')
 			.send({email, locale})
 			.end();
-
-		alert('request submitted')
 
 		this.setState({submitted: true});
 	}
