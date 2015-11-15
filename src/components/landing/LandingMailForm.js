@@ -8,9 +8,7 @@ var LandingMailForm = React.createClass({
 
 		return <form onSubmit={this.__onMailFormSubmitted}>
 
-			<input type="email"
-			       required="required"
-			       ref="mailInput"
+			<input ref="mailInput"
 			       className="landing-mail-input"
 			       placeholder={intl.messages['mail.placeholder']}/>
 
