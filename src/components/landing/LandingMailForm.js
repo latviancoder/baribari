@@ -21,8 +21,12 @@ var LandingMailForm = React.createClass({
 	},
 
 	__onMailFormSubmitted(e) {
+		alert('111');
 		e.preventDefault();
-
+		alert('222');
+		alert(e);
+		alert(this.refs.mailInput);
+		alert(this.refs.mailInput.value);
 		this.props._addMail(this.refs.mailInput.value);
 	}
 });
