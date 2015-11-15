@@ -1,3 +1,5 @@
+require("babel-polyfill");
+
 var Iso      = require('iso'),
     React    = require('react'),
     ReactDOM = require('react-dom'),
