@@ -25,7 +25,7 @@ var LandingHeader = React.createClass({
 							)
 						})}
 					</div>
-					<img src="images/logo.png" className="landing-header-logo"/>
+					<img src="/images/logo.png" className="landing-header-logo"/>
 					<h1 className="landing-header-slogan">
 						<FormattedMessage id="header.slogan"/>
 						<br/>

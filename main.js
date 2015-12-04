@@ -11,6 +11,7 @@ var express        = require('express'),
     locale         = require('locale'),
     React          = require('react'),
     ReactDOMServer = require('react-dom/server'),
+    DocumentTitle  = require('react-document-title'),
     Iso            = require('iso'),
     _              = require('underscore'),
     https          = require('https'),
@@ -83,6 +84,8 @@ app.use((req, res, next) => {
 
 // Magic
 app.use((req, res) => {
+	console.info(req.url);
+
 	// We take the locals data we have fetched and seed our stores with data
 	alt.bootstrap(JSON.stringify(res.locals.data || {}));
 
@@ -99,7 +102,7 @@ app.use((req, res) => {
 		iso.add(content, alt.flush());
 		res.render('index', {
 			body: iso.render(),
-			title: messages[req.locale].title,
+			title: DocumentTitle.rewind(),
 			environment: (req.client_ip.match(/127\.0\.0\.1/) ? 'dev' : 'prod')
 		})
 	});
