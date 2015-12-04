@@ -13,7 +13,6 @@ var express        = require('express'),
     ReactDOMServer = require('react-dom/server'),
     DocumentTitle  = require('react-document-title'),
     Iso            = require('iso'),
-    _              = require('underscore'),
     https          = require('https'),
     fs             = require('fs'),
     bodyParser     = require('body-parser'),
@@ -93,11 +92,6 @@ app.use((req, res) => {
 
 	match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
 		var content = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>);
-
-		var messages = {
-			de: require('./src/messages/de'),
-			en: require('./src/messages/en')
-		};
 
 		iso.add(content, alt.flush());
 		res.render('index', {
