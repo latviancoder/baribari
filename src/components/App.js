@@ -7,8 +7,8 @@ var { IntlProvider, addLocaleData } = require('react-intl');
 addLocaleData(require('react-intl/dist/locale-data/de'));
 
 var messages = {
-	de: require('../messages/de'),
-	en: require('../messages/en')
+	de: require('../messages/messages_de'),
+	en: require('../messages/messages_en')
 };
 
 var flattenMessages = (nestedMessages, prefix = '') => {

@@ -1,11 +1,11 @@
 module.exports = {
 	title: "React test",
+	header: {
+		slogan: 'Wundervolle japanische Geschenksets',
+		slogan2: 'kostenlose Lieferung'
+	},
 	landing: {
 		title: "Japanische Geschenke, Japanischer Grüner Tee",
-		header: {
-			slogan: 'Wundervolle japanische Geschenksets',
-			slogan2: 'kostenlose Lieferung'
-		},
 		engagement: {
 			slogan: 'Sorgfältig auserlesen <br/> von Japanliebhabern'
 		},
