@@ -1,13 +1,14 @@
 var React  = require('react'),
-    Link   = require('../../components/Link'),
     Header = require('../../components/header/Header');
 
-var Index = React.createClass({
+var Details = React.createClass({
 	render() {
 		return <div>
-			<Header/>
+			<div>
+				klajdklajsdklajsdklasjd
+			</div>
 		</div>;
 	}
 });
 
-module.exports = Index;
+module.exports = Details;

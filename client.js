@@ -5,10 +5,8 @@ var Iso      = require('iso'),
     React    = require('react'),
     ReactDOM = require('react-dom'),
     routes   = require('./src/routes'),
+    history  = require('./src/history'),
     alt      = require('./src/alt');
-
-import createBrowserHistory from 'history/lib/createBrowserHistory'
-let history = createBrowserHistory();
 
 var { Router } = require('react-router');
 

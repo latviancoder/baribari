@@ -55,11 +55,15 @@ body {
 	left: 0.6rem;
 	font-size: 11px;
 	text-transform: uppercase;
-	span {
+	a {
+		text-decoration: none;
 		cursor: pointer;
 		display: inline-block;
 		margin-right: 5px;
 		color: #6b6b6b;
+		&:hover {
+			text-decoration: underline;
+		}
 		&.active {
 			color: #b8b8b8;
 		}

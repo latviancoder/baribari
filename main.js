@@ -72,6 +72,7 @@ app.use((req, res, next) => {
 		res.locals.data = {
 			LocaleStore: {
 				locale: req.locale,
+				supported_locales: supported_locales,
 				ip: ip,
 				geo: geo
 			}
