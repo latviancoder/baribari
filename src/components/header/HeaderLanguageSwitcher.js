@@ -8,7 +8,7 @@ var HeaderLanguageSwitch = React.createClass({
 	},
 
 	render() {
-		return <div className="landing-languages">
+		return <div className="language-switcher">
 			{this.state.supported_locales.map(locale => {
 				return (
 					<a

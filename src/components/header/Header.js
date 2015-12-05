@@ -7,13 +7,13 @@ var { FormattedMessage } = require('react-intl');
 var Header = React.createClass({
 	render() {
 		return <section>
-			<header className="landing-header">
+			<header className="header">
 				<div>
 					<HeaderLanguageSwitcher/>
 
-					<img src="/images/logo.png" className="landing-header-logo"/>
+					<img src="/images/logo.png" className="header-logo"/>
 
-					<h1 className="landing-header-slogan">
+					<h1 className="header-slogan">
 						<FormattedMessage id="header.slogan"/>
 						<br/>
 						<FormattedMessage id="header.slogan2"/>

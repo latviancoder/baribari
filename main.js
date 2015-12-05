@@ -15,10 +15,7 @@ var express        = require('express'),
     Iso            = require('iso'),
     https          = require('https'),
     fs             = require('fs'),
-    bodyParser     = require('body-parser'),
-
-    alt            = require('./src/alt'),
-    routes         = require('./src/routes');
+    bodyParser     = require('body-parser');
 
 var { match, RoutingContext } = require('react-router');
 
@@ -34,22 +31,15 @@ app.use(bodyParser.json());
 const supported_locales = ['en', 'de'];
 app.use(locale(supported_locales));
 
-// Add mail api endpoint
-app.post('/api/test', (req, res) => {
-	db.run("INSERT INTO emails (email, data) VALUES ($email, $data)", {
-		$email: req.body.email,
-		$data: JSON.stringify(req.body.locale)
-	}, () => {
-		res.send();
-	});
-});
+// Express routes (api, fill stores with data)
+require('./src/routes/routes.express')(app, db);
 
 // Get and geographical data
 app.use((req, res, next) => {
 	var ip = req.headers['x-forwarded-for'] ||
-		req.connection.remoteAddress ||
-		req.socket.remoteAddress ||
-		req.connection.socket.remoteAddress;
+	         req.connection.remoteAddress ||
+	         req.socket.remoteAddress ||
+	         req.connection.socket.remoteAddress;
 
 	var geo = geoip.lookup(ip);
 
@@ -68,23 +58,25 @@ app.use((req, res, next) => {
 		// If language specified - take locale from URL
 		req.locale = req.url.match('^/([^/]+)')[1];
 
+		res.locals.data = res.locals.data || {};
+
 		// Populate LocaleStore with locale data
-		res.locals.data = {
-			LocaleStore: {
-				locale: req.locale,
-				supported_locales: supported_locales,
-				ip: ip,
-				geo: geo
-			}
+		res.locals.data.LocaleStore = {
+			locale: req.locale,
+			supported_locales: supported_locales,
+			ip: ip,
+			geo: geo
 		};
 
 		next();
 	}
 });
 
+var alt = require('./src/alt');
+var routes = require('./src/routes/routes.react');
+
 // Magic
 app.use((req, res) => {
-	console.info(req.url);
 
 	// We take the locals data we have fetched and seed our stores with data
 	alt.bootstrap(JSON.stringify(res.locals.data || {}));

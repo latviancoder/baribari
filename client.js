@@ -4,7 +4,7 @@ require("babel-polyfill");
 var Iso      = require('iso'),
     React    = require('react'),
     ReactDOM = require('react-dom'),
-    routes   = require('./src/routes'),
+    routes   = require('./src/routes/routes.react'),
     history  = require('./src/history'),
     alt      = require('./src/alt');
 

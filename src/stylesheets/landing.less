@@ -2,7 +2,7 @@ body {
 	color: #181818;
 }
 
-.landing-fixed-background {
+.fixed-background {
 	background: url('images/arches.png');
 	position: fixed;
 	top: 0;
@@ -12,7 +12,7 @@ body {
 	z-index: 0;
 }
 
-.landing-header {
+.header {
 	padding-bottom: 55%;
 	background: #000 url('images/landing3.jpg') no-repeat center;
 	background-size: cover;
@@ -30,7 +30,7 @@ body {
 	}
 }
 
-.landing-header-logo {
+.header-logo {
 	position: absolute;
 	width: 6rem;
 	top: 5rem;
@@ -39,7 +39,7 @@ body {
 	margin: auto;
 }
 
-.landing-header-slogan {
+.header-slogan {
 	color: #dcdcdc;
 	width: 100%;
 	text-align: center;
@@ -49,7 +49,7 @@ body {
 	line-height: 3rem;
 }
 
-.landing-languages {
+.language-switcher {
 	position: absolute;
 	top: 0.6rem;
 	left: 0.6rem;
@@ -70,7 +70,7 @@ body {
 	}
 }
 
-.landing-engagement {
+.engagement {
 	padding: 9rem 0;
 	margin: 0;
 	text-align: center;
@@ -81,7 +81,7 @@ body {
 	position: relative;
 }
 
-.landing-mail {
+.mail {
 	padding-bottom: 55%;
 	background: #000 url('images/footer.jpg') no-repeat center;
 	background-size: cover;
@@ -99,7 +99,7 @@ body {
 	}
 }
 
-.landing-mail-soon {
+.mail-soon {
 	color: #dcdcdc;
 	width: 100%;
 	font-size: 1.6rem;
@@ -109,11 +109,11 @@ body {
 	font-weight: normal;
 }
 
-.landing-mail-form {
+.mail-form {
 	margin: 2rem 0;
 }
 
-.landing-mail-input {
+.mail-input {
 	float: left;
 	border: 1px #ddd solid;
 	background: transparent;
@@ -122,7 +122,7 @@ body {
 	width: 15rem;
 }
 
-.landing-mail-submit {
+.mail-submit {
 	cursor: pointer;
 	padding: 6px 12px;
 	text-transform: uppercase;
@@ -136,19 +136,19 @@ body {
 	}
 }
 
-.landing-mail-nospam {
+.mail-nospam {
 	margin-top: 1.5rem;
 	font-size: 12px;
 	color: #dcdcdc;
 }
 
-.landing-mail-success {
+.mail-success {
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 2rem;
 }
 
-.landing-contact {
+.contact {
 	padding: 5rem 0 6rem 0;
 	position: relative;
 	z-index: 2;
@@ -158,7 +158,7 @@ body {
 	flex-direction: column;
 }
 
-.landing-contact-facebook {
+.contact-facebook {
 	font-size: 1.5rem;
 	text-transform: uppercase;
 	margin: 2rem 0;
@@ -172,12 +172,12 @@ body {
 	}
 }
 
-.landing-contact-collage {
+.contact-collage {
 	display: block;
 	max-width: 95%;
 }
 
-.landing-contact-nyanko {
+.contact-nyanko {
 	width: 8rem;
 	display: block;
 	position: absolute;
@@ -195,39 +195,39 @@ body {
 	html {
 		font-size: 60%;
 	}
-	.landing-contact-nyanko {
+	.contact-nyanko {
 		display: none;
 	}
-    .landing-header-logo {
+    .header-logo {
 	    top: 2rem;
     }
-    .landing-engagement {
+    .engagement {
 	    padding: 3rem 0;
     }
-    .landing-contact {
+    .contact {
 	    padding: 2rem 0;
     }
-    .landing-mail-form {
+    .mail-form {
 	    margin: 0;
     }
 }
 
 @media all and (max-width: 500px) {
-	.landing-fixed-background {
+	.fixed-background {
 		position: absolute;
 		height: 100%;
 	}
-	.landing-header-logo {
+	.header-logo {
 		display: none;
 	}
-	.landing-contact-facebook {
+	.contact-facebook {
 		text-align: center;
 		padding: 0 1rem;
 	}
-    .landing-mail {
+    .mail {
 	    background: #000;
     }
-    .landing-header {
+    .header {
 	    background-image: url('images/landing3_small.jpg');
     }
 }
