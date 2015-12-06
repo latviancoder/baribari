@@ -8,7 +8,7 @@ var MyLink = React.createClass({
 	},
 
 	render() {
-		return <Link to={`/${LocaleStore.getState().locale}${this.props.to}`}>
+		return <Link to={`/${LocaleStore.getState().locale}${this.props.to}`} className={this.props.className}>
 			{this.props.children}
 		</Link>;
 	}
