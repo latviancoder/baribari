@@ -1,0 +1,115 @@
+.header {
+	padding-bottom: 55%;
+	background: #000 url('images/landing3.jpg') no-repeat center;
+	background-size: cover;
+	position: relative;
+	& > div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.header-logo {
+	position: absolute;
+	width: 6rem;
+	top: 5rem;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.header-slogan {
+	color: #dcdcdc;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 2rem;
+	line-height: 3rem;
+}
+
+.language-switcher {
+	position: absolute;
+	top: 0.6rem;
+	left: 0.6rem;
+	font-size: 11px;
+	text-transform: uppercase;
+	a {
+		text-decoration: none;
+		cursor: pointer;
+		display: inline-block;
+		margin-right: 5px;
+		color: #6b6b6b;
+		&:hover {
+			text-decoration: underline;
+		}
+		&.active {
+			color: #b8b8b8;
+		}
+	}
+}
+
+.sets-list-container {
+	padding: 7rem 0;
+}
+
+.sets-list {
+	max-width: 60rem;
+	margin: 0 auto;
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
+.sets-list-entry {
+	position: relative;
+	float: left;
+	height: 21rem;
+	margin-bottom: 3rem;
+	width: 47%;
+	background: url('/images/set.jpg') no-repeat center;
+	background-size: cover;
+	&:nth-child(2n) {
+		float: right;
+	}
+	&:hover {
+		.sets-list-overlay {
+			opacity: 1;
+			& > div {
+				transform: translateY(0);
+			}
+		}
+	}
+}
+
+.sets-list-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	line-height: 1.5rem;
+	transition: all 0.5s ease-out;
+	background: rgba(255, 255, 255, 0.8);
+	& > div {
+		transition: all 0.5s ease-out;
+		transform: translateY(0.5rem);
+	}
+	.label {
+		font-weight: bold;
+	}
+}
