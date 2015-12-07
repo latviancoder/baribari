@@ -1,6 +1,9 @@
-var React         = require('react'),
-    DocumentTitle = require('react-document-title'),
-    LocaleStore   = require('../stores/LocaleStore');
+var React          = require('react'),
+    DocumentTitle  = require('react-document-title'),
+
+    ComingSoonMail = require('../components/coming/ComingSoonMail'),
+    Footer         = require('../components/footer/Footer'),
+    LocaleStore    = require('../stores/LocaleStore');
 
 var { IntlProvider, addLocaleData } = require('react-intl');
 
@@ -32,7 +35,12 @@ var App = React.createClass({
 
 		return <IntlProvider locale={LocaleStore.getState().locale} messages={flattenMessages(locale_messages)}>
 			<DocumentTitle title={locale_messages.title}>
-				{React.cloneElement(this.props.children)}
+				<div className="app">
+					<div className="fixed-background"></div>
+					{React.cloneElement(this.props.children)}
+					<ComingSoonMail/>
+					<Footer/>
+				</div>
 			</DocumentTitle>
 		</IntlProvider>
 	}

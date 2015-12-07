@@ -7,11 +7,8 @@ var React          = require('react'),
 var Index = React.createClass({
 	render() {
 		return <div>
-			<div className="fixed-background"></div>
 			<Header/>
 			<IndexSetsList/>
-			<ComingSoonMail/>
-			<Footer/>
 		</div>;
 	}
 });

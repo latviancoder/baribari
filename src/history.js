@@ -1,2 +1,4 @@
 var { createHistory } = require('history');
-module.exports = createHistory();
+var { useStandardScroll } = require('scroll-behavior');
+
+module.exports = useStandardScroll(createHistory)();

@@ -1,6 +1,7 @@
 var React         = require('react'),
     DocumentTitle = require('react-document-title'),
     HeaderSmall   = require('../../components/header/HeaderSmall'),
+    Footer        = require('../../components/footer/Footer'),
     SetsStore     = require('../../stores/SetsStore'),
     SetsActions   = require('../../actions/SetsActions'),
     Header        = require('../../components/header/Header');
@@ -15,7 +16,10 @@ var Details = React.createClass({
 		return <DocumentTitle title={this.state.single.name || ''}>
 			<div>
 				<HeaderSmall/>
-				{this.state.single.name}
+				<div>
+					{this.state.single.name}
+				</div>
+				<br/><br/>
 			</div>
 		</DocumentTitle>;
 	},
