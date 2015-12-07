@@ -1,3 +1,13 @@
+.fixed-background {
+	background: url('images/arches.png');
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
 .header {
 	padding-bottom: 55%;
 	background: #000 url('images/landing3.jpg') no-repeat center;
@@ -57,7 +67,7 @@
 }
 
 .sets-list-container {
-	padding: 7rem 0;
+	padding: 7rem 0 4rem 0;
 }
 
 .sets-list {
@@ -112,4 +122,109 @@
 	.label {
 		font-weight: bold;
 	}
+}
+
+.mail {
+	padding-bottom: 55%;
+	background: #000 url('images/footer.jpg') no-repeat center;
+	background-size: cover;
+	position: relative;
+	& > div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.mail-soon {
+	color: #dcdcdc;
+	width: 100%;
+	font-size: 1.6rem;
+	line-height: 2.5rem;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+.mail-form {
+	margin: 2rem 0;
+}
+
+.mail-input {
+	float: left;
+	border: 1px #ddd solid;
+	background: transparent;
+	padding: 7px 10px;
+	color: #fff;
+	width: 15rem;
+}
+
+.mail-submit {
+	cursor: pointer;
+	padding: 6px 12px;
+	text-transform: uppercase;
+	margin-left: 10px;
+	border: 2px #fff solid;
+	color: #fff;
+	background: transparent;
+	&:hover {
+		background: #fff;
+		color: #000;
+	}
+}
+
+.mail-nospam {
+	margin-top: 1.5rem;
+	font-size: 12px;
+	color: #dcdcdc;
+}
+
+.mail-success {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 2rem;
+}
+
+
+.contact {
+	padding: 5rem 0 6rem 0;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.contact-facebook {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	margin: 2rem 0;
+	a {
+		color: #3B5998;
+		font-weight: bold;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.contact-collage {
+	display: block;
+	max-width: 95%;
+}
+
+.contact-nyanko {
+	width: 8rem;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }

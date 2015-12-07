@@ -22,7 +22,8 @@ gulp.task('scripts', function() {
 					{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
 				],
 				noParse: /lie.js/
-			}
+			},
+			devtool: "#cheap-module-source-map"
 		}))
 		.pipe($.util.env.type == 'production' ? $.uglify() : $.util.noop())
 		.pipe(gulp.dest('./public'))

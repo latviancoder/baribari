@@ -1,13 +1,34 @@
-var React  = require('react'),
-    Header = require('../../components/header/Header');
+var React         = require('react'),
+    DocumentTitle = require('react-document-title'),
+    SetsStore     = require('../../stores/SetsStore'),
+    SetsActions   = require('../../actions/SetsActions'),
+    Header        = require('../../components/header/Header');
 
 var Details = React.createClass({
+
+	getInitialState() {
+		return SetsStore.getState();
+	},
+
 	render() {
-		return <div>
+		return <DocumentTitle title={this.state.single.name || ''}>
 			<div>
-				klajdklajsdklajsdklasjd
+				{this.state.single.name}
 			</div>
-		</div>;
+		</DocumentTitle>;
+	},
+
+	__onSetsStoreChanged() {
+		this.setState(SetsStore.getState());
+	},
+
+	componentDidMount() {
+		SetsActions.setActiveSet(this.props.params.link);
+		SetsStore.listen(this.__onSetsStoreChanged);
+	},
+
+	componentWillUnmount() {
+		SetsStore.unlisten(this.__onSetsStoreChanged);
 	}
 });
 

@@ -8,7 +8,7 @@ var App     = require('../components/App.js'),
 var routes = (
 	<Route path='/:lang' component={App}>
 		<IndexRoute component={Index}/>
-		<Route path='details' component={Details}/>
+		<Route path='details/:link' component={Details}/>
 	</Route>
 );
 

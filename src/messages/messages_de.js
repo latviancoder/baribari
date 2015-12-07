@@ -4,6 +4,14 @@ module.exports = {
 		slogan: 'Wundervolle japanische Geschenksets',
 		slogan2: 'kostenlose Lieferung'
 	},
+	mail: {
+		soon: 'Mehr Geschenksets bald verfügbar <br/> Sei der erste, der mehr erfährt',
+		placeholder: 'E-Mail',
+		submit: 'mich benachrichtigen',
+		nospam: 'Kein Spam. Wir versprechen.',
+		success: 'Dankeschön!'
+	},
+	facebook: 'Folge uns auf <a href="https://www.facebook.com/baribari.de" target=_blank>facebook</a> für tägliche Dosis der japanischen Kultur',
 	landing: {
 		title: "Japanische Geschenke, Japanischer Grüner Tee",
 		engagement: {
@@ -16,6 +24,6 @@ module.exports = {
 			nospam: 'Kein Spam. Wir versprechen.',
 			success: 'Dankeschön!'
 		},
-		facebook: 'Folge uns auf <a href="https://www.facebook.com/baribari.de" target=_blank>facebook</a> für tägliche Dosis der japanischen Kultur'
+
 	}
 };
