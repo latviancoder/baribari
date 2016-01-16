@@ -87,10 +87,13 @@ app.use((req, res) => {
 		var content = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>);
 
 		iso.add(content, alt.flush());
+
+		console.log(req.client_ip);
+
 		res.render('index', {
 			body: iso.render(),
 			title: DocumentTitle.rewind(),
-			environment: (req.client_ip.match(/127\.0\.0\.1/) ? 'dev' : 'prod')
+			environment: (req.client_ip.match(/(127\.0\.0\.1|::1)/) ? 'dev' : 'prod')
 		})
 	});
 });
