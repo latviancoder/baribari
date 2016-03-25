@@ -11,6 +11,7 @@ module.exports = {
 		nospam: 'Kein Spam. Wir versprechen.',
 		success: 'Dankeschön!'
 	},
+	coming: 'Coming soon',
 	facebook: 'Folge uns auf <a href="https://www.facebook.com/baribari.de" target=_blank>facebook</a> für tägliche Dosis der japanischen Kultur',
 	landing: {
 		title: "Japanische Geschenke, Japanischer Grüner Tee",

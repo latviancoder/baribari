@@ -1,3 +1,9 @@
+.container {
+	max-width: 60rem;
+	margin: 7rem auto 4rem auto;
+	.clearfix();
+}
+
 .fixed-background {
 	background: url('images/arches.png');
 	position: fixed;
@@ -27,7 +33,8 @@
 }
 
 .header--small {
-	background: #212121;
+	background: url('images/landing3.jpg') 0 -100px no-repeat;
+	background-size: cover;
 	padding-bottom: 5%;
 	.header-logo {
 		top: 0;
@@ -77,61 +84,58 @@
 	}
 }
 
-.sets-list-container {
-	padding: 7rem 0 4rem 0;
-}
-
-.sets-list {
-	max-width: 60rem;
-	margin: 0 auto;
-	&:after {
-		clear: both;
-		content: "";
-		display: table;
-	}
-}
-
-.sets-list-entry {
+.sets-entry {
+	text-decoration: none;
 	position: relative;
 	float: left;
-	height: 21rem;
+	height: 24rem;
 	margin-bottom: 3rem;
 	width: 47%;
-	background: url('/images/set.jpg') no-repeat center;
-	background-size: cover;
+	display: flex;
+	flex-direction: column;
 	&:nth-child(2n) {
 		float: right;
 	}
-	&:hover {
-		.sets-list-overlay {
-			opacity: 1;
-			& > div {
-				transform: translateY(0);
-			}
+}
+
+.sets-entry-picture {
+	position: relative;
+	height: 90%;
+	background: #000;
+	background-repeat: no-repeat;
+	background-size: cover;
+	&.disabled {
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(255, 255, 255, 0.8);
 		}
+	}
+	&.tea-for-two {
+		background-image: url('images/set.jpg');
+	}
+	&.sushi-chef {
+		background-image: url('images/sushi.jpg');
+	}
+	&.origami-inspiration {
+		background-image: url('images/cranebranch.jpg');
 	}
 }
 
-.sets-list-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	opacity: 0;
-	height: 100%;
-	display: flex;
-	align-items: center;
+.sets-entry-description {
 	text-align: center;
-	justify-content: center;
-	line-height: 1.5rem;
-	transition: all 0.5s ease-out;
-	background: rgba(255, 255, 255, 0.8);
-	& > div {
-		transition: all 0.5s ease-out;
-		transform: translateY(0.5rem);
-	}
+	color: #868686;
+	font-weight: bold;
+	letter-spacing: 1px;
 	.label {
-		font-weight: bold;
+		margin-top: 1rem;
+	}
+	.price {
+		margin-top: 0.5rem;
 	}
 }
 
@@ -202,7 +206,6 @@
 	font-size: 2rem;
 }
 
-
 .contact {
 	padding: 5rem 0 6rem 0;
 	position: relative;
@@ -239,3 +242,5 @@
 	bottom: 0;
 	left: 0;
 }
+
+@import "details";

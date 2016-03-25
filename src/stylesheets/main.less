@@ -21,4 +21,11 @@ a {
 	color: @main_black;
 }
 
+.clearfix() {
+	&:after{
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
 @import "common";

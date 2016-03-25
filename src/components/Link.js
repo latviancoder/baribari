@@ -3,15 +3,19 @@ var React       = require('react'),
     { Link } = require('react-router');
 
 var MyLink = React.createClass({
-	getInitialState() {
-		return LocaleStore.getState();
-	},
+    getInitialState() {
+        return LocaleStore.getState();
+    },
 
-	render() {
-		return <Link to={`/${LocaleStore.getState().locale}${this.props.to}`} className={this.props.className}>
-			{this.props.children}
-		</Link>;
-	}
+    render() {
+        if (this.props.to) {
+            return <Link to={`/${LocaleStore.getState().locale}${this.props.to}`} className={this.props.className}>
+                {this.props.children}
+            </Link>;
+        } else {
+            return <div className={this.props.className}>{this.props.children}</div>;
+        }
+    }
 });
 
 module.exports = MyLink;

@@ -27,6 +27,8 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+bodyParser.json();
+
 // Get system language
 const supported_locales = ['en', 'de'];
 app.use(locale(supported_locales));
