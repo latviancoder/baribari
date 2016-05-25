@@ -1,5 +1,7 @@
 module.exports = {
     title: 'React test',
+    addToCart: 'Add to cart',
+    backToGifts: 'Back to gifts',
     header: {
         slogan: 'Beautiful japanese gift sets',
         slogan2: 'Free shipping'

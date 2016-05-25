@@ -1,8 +1,8 @@
 module.exports = [
     {
         id: 'tea-for-two',
-        label: 'test label',
-        price: 100,
+        label: 'Tea For Two',
+        price: 80,
         enabled: true
     },
 
